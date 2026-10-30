@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en-GB" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mohamed Shermarkia – student developer profile, Computing & Digital Design at Bath Spa University.">
+  <title>Mohamed Shermarkia | Student Developer</title>
+
+  <!-- Fonts: Bricolage Grotesque for headings, Source Serif 4 for body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Skip link lets keyboard users jump past the navigation -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <a class="brand" href="#top">M. Shermarkia</a>
+
+    <!-- Menu button is only shown on small screens (see media query in styles.css) -->
+    <button class="nav-toggle" id="navToggle" type="button"
+            aria-expanded="false" aria-controls="navList">
+      Menu
+    </button>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul class="nav-list" id="navList">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">
+      Dark mode
+    </button>
+  </header>
+
+  <main id="main">
+    <!-- Hero / introduction -->
+    <section class="hero" id="top" aria-labelledby="heroTitle">
+      <div class="hero-text">
+        <p class="hero-intro">Computing &amp; Digital Design, Bath Spa University</p>
+        <h1 id="heroTitle">I build websites and small AI products, mostly on my own.</h1>
+        <p class="hero-lede">
+          I'm Mohamed, a student developer based in London. I make client sites for
+          restaurants and small shops, and I ship my own web and mobile apps on the side.
+        </p>
+        <a class="button" href="#projects">See my projects</a>
+      </div>
+      <img class="hero-avatar" src="assets/avatar.svg" width="200" height="200"
+           alt="Teal square with the initials MS, used as Mohamed's logo">
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about" aria-labelledby="aboutTitle">
+      <h2 id="aboutTitle">About</h2>
+      <div class="about-grid">
+        <p>
+          I started building websites for people I knew, then for paying clients.
+          Most of what I make is a single page or a small app with one clear job:
+          take a booking, show a menu, or help someone start a task they've been avoiding.
+        </p>
+        <p>
+          This year in Web Development II I want to get more disciplined about structure
+          and testing, so that the things I ship quickly are also things I can maintain.
+        </p>
+      </div>
+    </section>
+
+    <!-- Projects with a JavaScript filter -->
+    <section class="projects" id="projects" aria-labelledby="projectsTitle">
+      <h2 id="projectsTitle">Projects</h2>
+
+      <div class="filter" role="group" aria-label="Filter projects by type">
+        <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-btn" type="button" data-filter="client" aria-pressed="false">Client sites</button>
+        <button class="filter-btn" type="button" data-filter="app" aria-pressed="false">Own apps</button>
+      </div>
+
+      <!-- Live region so screen readers hear how many projects are shown -->
+      <p class="filter-status" id="filterStatus" aria-live="polite">Showing 4 projects</p>
+
+      <ul class="project-list" id="projectList">
+        <li class="project" data-type="app">
+          <h3>Take One Bite</h3>
+          <p>A web app that helps people beat procrastination by starting with one small step.</p>
+          <p class="project-tag">Web app</p>
+        </li>
+        <li class="project" data-type="app">
+          <h3>LinguaAI</h3>
+          <p>A real-time speech translator I'm preparing for release on the App Store.</p>
+          <p class="project-tag">iOS app</p>
+        </li>
+        <li class="project" data-type="client">
+          <h3>Khayal House</h3>
+          <p>A full website for a halal Middle Eastern restaurant in London.</p>
+          <p class="project-tag">Restaurant</p>
+        </li>
+        <li class="project" data-type="client">
+          <h3>Spoke &amp; Patina</h3>
+          <p>A demo site for a vintage bicycle restoration shop.</p>
+          <p class="project-tag">Retail</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Skills with show/hide detail -->
+    <section class="skills" id="skills" aria-labelledby="skillsTitle">
+      <h2 id="skillsTitle">Skills</h2>
+      <ul class="skill-list">
+        <li>HTML5</li>
+        <li>CSS (Flexbox, Grid)</li>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>Git &amp; GitHub</li>
+        <li>Vercel</li>
+      </ul>
+
+      <button class="link-button" id="learningToggle" type="button"
+              aria-expanded="false" aria-controls="learningPanel">
+        Show what I'm learning next
+      </button>
+      <div class="learning-panel" id="learningPanel" hidden>
+        <p>
+          Writing tests before I refactor, auditing my pages for accessibility with
+          screen readers, and keeping CSS organised as a project grows.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact form with JavaScript validation feedback -->
+    <section class="contact" id="contact" aria-labelledby="contactTitle">
+      <h2 id="contactTitle">Contact</h2>
+      <p>Have a small website you need built? Send me a message.</p>
+
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" autocomplete="name"
+                 aria-describedby="nameError">
+          <p class="error" id="nameError"></p>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email"
+                 aria-describedby="emailError">
+          <p class="error" id="emailError"></p>
+        </div>
+
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5"
+                    aria-describedby="messageError messageCount"></textarea>
+          <p class="hint" id="messageCount">0 / 500 characters</p>
+          <p class="error" id="messageError"></p>
+        </div>
+
+        <button class="button" type="submit">Send message</button>
+        <p class="form-success" id="formSuccess" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year">2026</span> Mohamed Shermarkia. Built with HTML, CSS and JavaScript for the Web Dev II refresher.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
